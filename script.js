@@ -263,12 +263,13 @@ function berechneParallelogramm(){
 
         var flaecheParallelogramm = seiteAparallelogramm * hoeheParallelogramm;
         var umfangParallelogramm = 2 * (seiteAparallelogramm + seiteBparallelogramm);
-        document.getElementById("parallelogrammergebnis").innerHTML = "Deine Eingabe  Seite a: " + seiteAparallelogramm + " ,Seite b: " + seiteBparallelogramm + " ,Höhe: " + hoeheParallelogramm  +"<br>Fläche A: " + flaecheParallelogramm.toFixed(2) + "<br>Umfang U: " + umfangParallelogramm.toFixed(2);
+        document.getElementById("parallelogrammergebnis").innerHTML = "Deine Eingabe  Seite (a): " + seiteAparallelogramm + " ,Seite b: " + seiteBparallelogramm + " ,Höhe (h): " + hoeheParallelogramm  +"<br>Fläche (A): " + flaecheParallelogramm.toFixed(2) + "<br>Umfang (U): " + umfangParallelogramm.toFixed(2);
     }
 }
 
 function berechneHexagon(){
     var myseiteAhexagon = document.getElementById("SeiteAsechseck");
+    var myflacheHexagon = document.getElementById("FlaecheAsechseck");
 
     if(myseiteAhexagon && myseiteAhexagon.value){
         var seiteAhexagon = parseFloat(document.getElementById("SeiteAsechseck").value);
@@ -278,7 +279,18 @@ function berechneHexagon(){
         var d1Hexagon = 2 * seiteAhexagon;
         var d2Hexagon = Math.sqrt(3)*seiteAhexagon;
         var d3Hexagon = Math.sqrt(3)*seiteAhexagon;
-        document.getElementById("hexagonergebnis").innerHTML = "Deine Eingabe  Seite a: " + seiteAhexagon +"<br>Fläche A: " + flaecheHexagon.toFixed(2) + "<br>Umfang U: " + umfangHexagon.toFixed(2) + "<br>d1: " + d1Hexagon.toFixed(2) + "<br>d2: " + d2Hexagon.toFixed(2) + "<br>d3: " + d3Hexagon.toFixed(2);
+        document.getElementById("hexagonergebnis").innerHTML = "Deine Eingabe  Seite (a): " + seiteAhexagon +"<br>Fläche (A): " + flaecheHexagon.toFixed(2) + "<br>Umfang (U): " + umfangHexagon.toFixed(2) + "<br>d1: " + d1Hexagon.toFixed(2) + "<br>d2: " + d2Hexagon.toFixed(2) + "<br>d3: " + d3Hexagon.toFixed(2);
+    }
+
+    if(myflacheHexagon && myflacheHexagon.value){
+        var flaecheHexagon = parseFloat(document.getElementById("FlaecheAsechseck").value);
+
+        var seiteAhexagon = Math.sqrt((2*flaecheHexagon) / (3* Math.sqrt(3)));//Fehlerhaft 
+        var umfangHexagon = 6*seiteAhexagon;
+        var d1Hexagon = 2 * seiteAhexagon;
+        var d2Hexagon = Math.sqrt(3)*seiteAhexagon;
+        var d3Hexagon = Math.sqrt(3)*seiteAhexagon;
+        document.getElementById("hexagonergebnis").innerHTML = "Deine Eingabe  Flächeninhalt (A): " + flaecheHexagon  +"<br>Seitenlänge (a): "+seiteAhexagon.toFixed(2) + "<br>Umfang (U): " + umfangHexagon.toFixed(2) + "<br>d1: " + d1Hexagon.toFixed(2) + "<br>d2: " + d2Hexagon.toFixed(2) + "<br>d3: " + d3Hexagon.toFixed(2);
     }
 }
 
@@ -334,3 +346,8 @@ function berechnePentagon(){
     }
 
 }
+
+
+
+
+
